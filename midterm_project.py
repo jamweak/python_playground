@@ -11,7 +11,7 @@ MENU_LIST = [
     ("Don Cali Burger", 5.95)
 ]
 EXIT_CODE = len(MENU_LIST) + 1
-QUNTITY_LIST = [0] * len(MENU_LIST)
+QUANTITY_LIST = [0] * len(MENU_LIST)
 ERR_MSG = "Your input is incorrect, please enter again!"
 STUDENT_CODE = 0
 STUFF_CODE = 1
@@ -20,7 +20,7 @@ TAX_RATE = 0.09
 # main function
 def main():
     show_menu()
-    isStudent = get_intputs()
+    isStudent = get_inputs()
     totalBeforeTax, tax = compute_bill(isStudent)
     print_bill(totalBeforeTax, tax)
 
@@ -35,7 +35,7 @@ def show_menu():
 
     print("*" * LENGTH_OF_STAR)
 # function to get user inputs
-def get_intputs():
+def get_inputs():
     finished = False
     totalQuantities = 0
     while not finished:
@@ -49,8 +49,8 @@ def get_intputs():
         else:
             quantity = ask_quantity(selection)
             totalQuantities = totalQuantities + quantity
-            QUNTITY_LIST[selection-1] = QUNTITY_LIST[selection-1] + quantity
-    #print(QUNTITY_LIST)
+            QUANTITY_LIST[selection-1] = QUANTITY_LIST[selection-1] + quantity
+    #print(QUANTITY_LIST)
     isStudent = ask_identity() == STUDENT_CODE
     return isStudent
 
@@ -95,9 +95,9 @@ def ask_identity():
 def compute_bill(isStudent):
     totalBeforeTax = 0
     tax = 0
-    for i in range(len(QUNTITY_LIST)):
-        if QUNTITY_LIST[i] != 0:
-            totalBeforeTax = totalBeforeTax + float(MENU_LIST[i][1]) * QUNTITY_LIST[i]
+    for i in range(len(QUANTITY_LIST)):
+        if QUANTITY_LIST[i] != 0:
+            totalBeforeTax = totalBeforeTax + float(MENU_LIST[i][1]) * QUANTITY_LIST[i]
     if not isStudent:
         tax = totalBeforeTax * TAX_RATE
     return totalBeforeTax, tax
@@ -105,10 +105,10 @@ def compute_bill(isStudent):
 # function to display the recipt
 def print_bill(totalBeforeTax, tax):
     print("*" * LENGTH_OF_STAR)
-    for i in range(len(QUNTITY_LIST)):
-        if QUNTITY_LIST[i] != 0:
-            print(f"You have ordered {QUNTITY_LIST[i]} {MENU_LIST[i][0]}")
-            print(f"Cost per item is {MENU_LIST[i][1]} and subtotal is {(float(MENU_LIST[i][1]) * QUNTITY_LIST[i]):.2f}")
+    for i in range(len(QUANTITY_LIST)):
+        if QUANTITY_LIST[i] != 0:
+            print(f"You have ordered {QUANTITY_LIST[i]} {MENU_LIST[i][0]}")
+            print(f"Cost per item is {MENU_LIST[i][1]} and subtotal is {(float(MENU_LIST[i][1]) * QUANTITY_LIST[i]):.2f}")
     print("*" * LENGTH_OF_STAR)
     print(f"Your total before tax: {totalBeforeTax:.2f}")
     print("*" * LENGTH_OF_STAR)
