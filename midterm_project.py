@@ -1,5 +1,6 @@
 # Jian Cui
 # Midterm project - Display a menu for food court, handle the order and display recipt.
+# TEAM: DragonBytes
 
 # Constant values
 LENGTH_OF_STAR = 47
@@ -57,7 +58,7 @@ def get_inputs():
 # function to get user selection
 def ask_selection():
     while True:
-        number = input(f"Please enter your selection (1-{EXIT_CODE-1}) to order, {EXIT_CODE} to exit: ")
+        number = input(f"Please enter your selection (1-{EXIT_CODE-1}) to order, {EXIT_CODE} to exit: ").strip()
         if is_selection_valid(number):
             return int(number)
         else:
@@ -74,7 +75,7 @@ def is_selection_valid(number):
 # function to get quantity of the selection
 def ask_quantity(selection):
     while True:
-        quantity = input(f"Please enter your quantity of {MENU_LIST[selection - 1][0]}: ")
+        quantity = input(f"Please enter your quantity of {MENU_LIST[selection - 1][0]}: ").strip()
         if quantity.isdigit():
             return int(quantity)
         else:
@@ -83,7 +84,7 @@ def ask_quantity(selection):
 # function to ask if the user is student or stuff
 def ask_identity():
     while True:
-        identityNumber = input(f"Please enter your identity({STUDENT_CODE} for student, {STUFF_CODE} for stuff): ")
+        identityNumber = input(f"Please enter your identity({STUDENT_CODE} for student, {STUFF_CODE} for stuff): ").strip()
         if identityNumber.isdigit():
             identityNumber = int(identityNumber)
             if identityNumber == STUDENT_CODE or identityNumber == STUFF_CODE:
