@@ -147,3 +147,35 @@ def print_bill(totalBeforeTax, tax):
 
 # call the main function
 main()
+
+"""
+Output:
+***********************************************
+* Welcome to the food court, here is the menu *
+* 1:De Anza Burger                5.25        *
+* 2:Bacon Cheese                  5.75        *
+* 3:Mushroom Swiss                5.95        *
+* 4:Western Burger                5.95        *
+* 5:Don Cali Burger               5.95        *
+***********************************************
+Please enter your selection (1-5) to order, 6 to exit: 1
+Please enter your quantity of De Anza Burger: 2
+Please enter your selection (1-5) to order, 6 to exit: a
+Your input is incorrect, please enter again!
+Please enter your selection (1-5) to order, 6 to exit: 2
+Please enter your quantity of Bacon Cheese: 2
+Please enter your selection (1-5) to order, 6 to exit: 6
+Please enter your identity(0 for student, 1 for stuff): 1
+***********************************************
+You have ordered 2 De Anza Burger
+Cost per item is 5.25 and subtotal is 10.50
+You have ordered 2 Bacon Cheese
+Cost per item is 5.75 and subtotal is 11.50
+***********************************************
+Your total before tax: 22.00
+***********************************************
+Your tax amount:1.98
+***********************************************
+Your total after tax:23.98
+
+"""
