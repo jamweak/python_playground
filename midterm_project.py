@@ -35,6 +35,7 @@ def show_menu():
         counter = counter + 1
 
     print("*" * LENGTH_OF_STAR)
+
 # function to get user inputs
 def get_inputs():
     finished = False
@@ -66,6 +67,13 @@ def ask_selection():
 
 # function to determine if selection is valid
 def is_selection_valid(number):
+    """
+        This function take one parameter as input and return whether it is a valid number
+        Parameter:
+            number(str): the string user entered
+        Return:
+            Boolean: number is valid or not
+    """
     if number.isdigit():
         number = int(number)
         return number >= 1 and number <= EXIT_CODE
@@ -74,6 +82,13 @@ def is_selection_valid(number):
 
 # function to get quantity of the selection
 def ask_quantity(selection):
+    """
+        This function take one parameter as input and return the quantity of this selection
+        Parameter:
+            selection(int): the item user selected 
+        Return:
+            int: the quantity of this selection
+    """
     while True:
         quantity = input(f"Please enter your quantity of {MENU_LIST[selection - 1][0]}: ").strip()
         if quantity.isdigit():
@@ -94,6 +109,13 @@ def ask_identity():
 
 # function to compute bill
 def compute_bill(isStudent):
+    """
+        This function take one parameter as input and return the results of bill
+        Parameter:
+            isStudent(bool): the user is student or not
+        Returns:
+            float, float: the totalBeforeTax and tax
+    """
     totalBeforeTax = 0
     tax = 0
     for i in range(len(QUANTITY_LIST)):
@@ -105,6 +127,12 @@ def compute_bill(isStudent):
 
 # function to display the recipt
 def print_bill(totalBeforeTax, tax):
+    """
+        This function take two parameters as input and print the bill
+        Parameter:
+            totalBeforeTax(float): the amount of totalBeforeTax
+            tax(float): the amount of tax
+    """
     print("*" * LENGTH_OF_STAR)
     for i in range(len(QUANTITY_LIST)):
         if QUANTITY_LIST[i] != 0:
